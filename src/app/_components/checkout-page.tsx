@@ -1,14 +1,22 @@
-import React from "react";
-import CheckoutHeader from "./checkout/checkout-header";
-import CheckoutForm from "./checkout/checkout-form";
-import Footer from "./checkout/checkout-footer";
-import { CheckoutPageType } from "@/interfaces/checkoutPage";
-import FunnelFluxScripts from "@/lib/funnel-flux-scripts";
-import CheckoutClickId from "./checkout/checkout-click-id";
+import React from "react"
+
+import FunnelFluxScripts from "@/lib/funnel-flux-scripts"
+import CheckoutHeader from "./checkout/checkout-header"
+import CheckoutForm from "./checkout/checkout-form"
+import Footer from "./checkout/checkout-footer"
+
+import CheckoutClickId from "./checkout/checkout-click-id"
+
+import CheckoutHeader2 from "./checkout2/CheckoutHeader2"
+import CheckoutForm2 from "./checkout2/CheckoutForm2"
+import Footer2 from "./checkout2/Footer2"
+import FunnelFluxScripts2 from "./checkout2/FunnelFluxScripts2"
+
+import { CheckoutPageType } from "@/interfaces/checkoutPage"
 
 type Props = {
-  info: CheckoutPageType;
-};
+  info: CheckoutPageType
+}
 
 const CheckoutPage = ({ info }: Props) => {
   if (!info) {
@@ -16,7 +24,7 @@ const CheckoutPage = ({ info }: Props) => {
       <div>
         Error: Unable to load checkout information. Please try again later.
       </div>
-    );
+    )
   }
 
   return (
@@ -32,11 +40,15 @@ const CheckoutPage = ({ info }: Props) => {
       )}
       {info.template === "2" && (
         <div className="flex flex-col items-center relative">
-          {/* Build this Page following the same patterns as Template1 */}
+          <CheckoutHeader2 info={info} />
+          <CheckoutForm2 info={info} />
+          <Footer2 info={info} />
+          <FunnelFluxScripts2 funnelFlux={info.funnelFlux} />
+          <CheckoutClickId />
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default CheckoutPage;
+export default CheckoutPage

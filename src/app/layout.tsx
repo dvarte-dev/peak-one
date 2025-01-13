@@ -5,17 +5,17 @@ import {
   siteImage,
   siteGtm,
   siteGtag,
-} from "@/lib/site-info";
-import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import ClientSideScripts from "@/lib/client-scripts";
-import "./globals.css";
-import Script from "next/script";
-import { TrackingProvider } from "./_context/TrackingContext";
-import { SessionProvider } from "./_context/SessionContext";
+} from "@/lib/site-info"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google"
+import ClientSideScripts from "@/lib/client-scripts"
+import "./globals.css"
+import Script from "next/script"
+import { TrackingProvider } from "./_context/TrackingContext"
+import { SessionProvider } from "./_context/SessionContext"
 
-const openSans = Open_Sans({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   openGraph: {
     images: siteImage,
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -69,8 +69,13 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className={openSans.className}>
+      <body className={inter.className}>
         <TrackingProvider>
           <SessionProvider>
             <div className="min-h-screen">{children}</div>
@@ -86,5 +91,5 @@ export default function RootLayout({
         />
       </body>
     </html>
-  );
+  )
 }

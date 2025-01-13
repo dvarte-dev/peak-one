@@ -1,6 +1,6 @@
 ---
 slug: "checkout"
-template: "1"
+template: "2"
 funnelFlux: 'var fluxDefaults = {
   p: "2psk5ffK2Q4T",
   f: "2nKLCwO4hgIO"
@@ -63,4 +63,37 @@ product:
   shippingId4: "8"
   stickyId4: "40"
   couponValue: "5"
+  
+customers:
+  reviews:
+    - name: Linda C.
+      title: Thank you for giving me my hearing back
+      text: "I thought my hearing was ok and I didn't need any hearing aids. But I noticed that I was saying \"Huh\" quite often to people that was talking to me. I also was always asking for the volume to be turned up on the TV."
+      image: /images/customers/rev_img1.jpg
+    - name: Ron K.
+      title: Absolutely love them
+      text: "I purchased a pair of Oricle Hearing aid 2.0 and love them. I had purchased a pair of Starkey hearing aids which I had paid $3,800.00 for and the hearing on the Oricle 2.0 is 5 times better and I only have it set on half power. Absolutely love them."
+      image: /images/customers/rev_img2.jpg
+    - name: Donald F.
+      title: I am completely satisfied
+      text: "I have had several hearing devices over the past few years. They all have been relatively satisfactory, most after testing for my hearing deficiency and adjusting for the frequencies most in need of amplification and ambient conditions."
+      image: /images/customers/cust-rev-img8.jpg
+  icons:
+    quote: /images/icons/quote_icon.png
+    stars: /images/icons/review_star.png
+    verified: /images/icons/verified.png
+
+reasons:
+  - imgSrc: /images/reasons/choose-seal1-satisfaction.png
+    imgAlt: Satisfaction Guarantee
+    title: Satisfaction Guarantee
+    description: "We stand by our product 100%. Return your Oricle 2.0 within 45 days if you’re not satisfied for a refund - no questions asked."
+  - imgSrc: /images/reasons/choose-seal2.png
+    imgAlt: Fast U.S. Shipping
+    title: Fast U.S. Shipping
+    description: "Your Oricle hearing aid 2.0 will be delivered within 3-6 business days from our warehouse in Tampa, FL."
+  - imgSrc: /images/reasons/choose-seal3.png
+    imgAlt: +16,000 Orders Shipped Till Date
+    title: "+16,000 Orders Shipped Till Date"
+    description: "Join thousands of satisfied customers who have already made the switch to Oricle 2.0 - you’re in good hands!"
 ---
