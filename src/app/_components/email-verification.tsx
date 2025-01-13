@@ -1,9 +1,16 @@
-import React from "react";
-import Footer from "./article/footer2";
-import Image from "next/image";
-import Link from "next/link";
-import { siteLogo, siteProduct, emailVerificationLink } from "@/lib/site-info";
-const EmailVerificationPage = () => {
+import React from "react"
+import Image from "next/image"
+import Footer2 from "./checkout/checkout-footer"
+import Link from "next/link"
+import { siteLogo, siteProduct, emailVerificationLink } from "@/lib/site-info"
+
+import { CheckoutPageType } from "@/interfaces/checkoutPage"
+
+type Props = {
+  info: CheckoutPageType
+}
+
+const EmailVerificationPage = ({ info }: Props) => {
   return (
     <div className="flex flex-col w-full items-center min-h-screen bg-white">
       <div className="flex w-full justify-center px-4 py-2 md:py-4 bg-[#f5f5f5]">
@@ -28,8 +35,8 @@ const EmailVerificationPage = () => {
           Checkout These 67 Lifehacks that Will Boost the Quality of Your Life!
         </Link>
       </div>
-      <Footer />
+      <Footer2 info={info} />
     </div>
-  );
-};
-export default EmailVerificationPage;
+  )
+}
+export default EmailVerificationPage
