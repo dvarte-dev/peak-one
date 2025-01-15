@@ -64,19 +64,19 @@ const CheckoutForm = ({ info }: Props) => {
     useState<CustomerInfoType>(initialCustomerInfo)
 
   const zipRegexes: { [key: string]: RegExp } = {
-    US: /^\d{5}(-\d{4})?$/, // United States: 12345 or 12345-6789
-    AU: /^\d{4}$/, // Australia: 1234
+    US: /^\d{5}(-\d{4})?$/,
+    AU: /^\d{4}$/,
     CA: /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i, // Canada: A1A 1A1
-    FI: /^\d{5}$/, // Finland: 12345
-    FR: /^\d{5}$/, // France: 12345
-    DE: /^\d{5}$/, // Germany: 12345
-    IS: /^\d{3}$/, // Iceland: 123
-    IE: /^[A-Z]\d{2}[A-Z\d]?[A-Z]?( \d{4})?$/i, // Ireland: A12 B3CD or A12 1234
-    IL: /^\d{5}(\d{2})?$/, // Israel: 1234567 or 12345
-    NZ: /^\d{4}$/, // New Zealand: 1234
-    NO: /^\d{4}$/, // Norway: 1234
-    SE: /^\d{3}[ ]?\d{2}$/, // Sweden: 123 45 or 12345
-    GB: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/i, // United Kingdom: AB1 2CD or AB12 3CD
+    FI: /^\d{5}$/,
+    FR: /^\d{5}$/,
+    DE: /^\d{5}$/,
+    IS: /^\d{3}$/,
+    IE: /^[A-Z]\d{2}[A-Z\d]?[A-Z]?( \d{4})?$/i,
+    IL: /^\d{5}(\d{2})?$/,
+    NZ: /^\d{4}$/,
+    NO: /^\d{4}$/,
+    SE: /^\d{3}[ ]?\d{2}$/,
+    GB: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/i,
   }
 
   const formik = useFormik({
@@ -97,9 +97,9 @@ const CheckoutForm = ({ info }: Props) => {
           "zip",
           "Invalid Postal/ZIP code",
           function (value: string | undefined) {
-            if (!value) return false // Handle undefined case
-            const country = this.parent.country as string // Type assertion
-            const regex = zipRegexes[country] || /.+/ // Default to any non-empty string
+            if (!value) return false
+            const country = this.parent.country as string
+            const regex = zipRegexes[country] || /.+/
             return regex.test(value)
           }
         )
@@ -130,9 +130,9 @@ const CheckoutForm = ({ info }: Props) => {
         product={product}
       />
       <div className="checkout_main_section">
-        <div className="container">
-          <div className="checkout_inner_section ">
-            <div className="checkout_left bg-white">
+        <div className="container mx-auto px-4">
+          <div className="checkout_inner_section flex flex-col lg:flex-row">
+            <div className="checkout_left bg-white w-full lg:w-1/2 px-4 lg:px-8 py-4">
               <div className="w-full mb-4">
                 <DiscountBar2
                   product={product.product}
@@ -179,7 +179,7 @@ const CheckoutForm = ({ info }: Props) => {
                 />
               </div>
             </div>
-            <div className="checkout_right">
+            <div className="checkout_right bg-gray-50 w-full lg:w-1/2 px-4 lg:px-8 py-4">
               <div className="w-full mb-4">
                 <Summary product={product} info={info} />
                 <WhyChoose reasons={reasons} />

@@ -39,7 +39,7 @@ const CheckoutPage = ({ info }: Props) => {
         </div>
       )}
       {info.template === "2" && (
-        <div className="flex flex-col items-center relative">
+        <div className="flex flex-col items-center relative w-full">
           <CheckoutHeader2 info={info} />
           <CheckoutForm2 info={info} />
           <Footer2 info={info} />
