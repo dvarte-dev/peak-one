@@ -149,9 +149,13 @@ const QuantitySelector2 = ({
                     height={250}
                     className="check-prod"
                   />
-                  {index > 0 && (
+                  {parseFloat(item.price) < parseFloat(item.ogPrice) && (
                     <div className="check_off_seal">
-                      {index === 1 ? "50%" : "60%"}
+                      {`${Math.round(
+                        ((parseFloat(item.ogPrice) - parseFloat(item.price)) /
+                          parseFloat(item.ogPrice)) *
+                          100
+                      )}%`}
                       <br />
                       off
                     </div>
@@ -160,13 +164,15 @@ const QuantitySelector2 = ({
               </div>
 
               <div className="sel-prd-prc">
-                <p className="prod-det_cut-tx">
-                  <PriceDisplaySimple2
-                    priceUSD={parseFloat(item.ogPrice)}
-                    countryCode={country}
-                    digits={0}
-                  />
-                </p>
+                {parseFloat(item.price) < parseFloat(item.ogPrice) && (
+                  <p className="prod-det_cut-tx">
+                    <PriceDisplaySimple2
+                      priceUSD={parseFloat(item.ogPrice)}
+                      countryCode={country}
+                      digits={0}
+                    />
+                  </p>
+                )}
                 <p className="prd-prc">
                   <PriceDisplaySimple2
                     priceUSD={parseFloat(item.price)}
@@ -174,14 +180,18 @@ const QuantitySelector2 = ({
                     digits={2}
                   />
                 </p>
-                <p className="prd-save">
-                  You Save{" "}
-                  <PriceDisplaySimple2
-                    priceUSD={parseFloat(item.ogPrice) - parseFloat(item.price)}
-                    countryCode={country}
-                    digits={2}
-                  />
-                </p>
+                {parseFloat(item.price) < parseFloat(item.ogPrice) && (
+                  <p className="prd-save">
+                    You Save{" "}
+                    <PriceDisplaySimple2
+                      priceUSD={
+                        parseFloat(item.ogPrice) - parseFloat(item.price)
+                      }
+                      countryCode={country}
+                      digits={2}
+                    />
+                  </p>
+                )}
               </div>
             </label>
           ))}
