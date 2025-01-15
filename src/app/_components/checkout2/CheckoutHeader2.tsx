@@ -12,7 +12,7 @@ const CheckoutHeader2 = ({ info }: Props) => {
       <div className="max-w-[1200px] w-full mx-auto flex justify-between items-center py-4 px-6">
         <div className="flex-shrink-0">
           <Image
-            src={info.header.logo}
+            src={info.logo}
             className="logo h-12 w-auto"
             alt="logo"
             width={48}
