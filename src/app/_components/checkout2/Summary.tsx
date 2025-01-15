@@ -12,7 +12,7 @@ const Summary = ({ product, info }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  const productKey = product.product + 1
+  const productKey = product.product
 
   const image = info.product[`image${productKey}` as keyof typeof info.product]
   const price = parseFloat(
